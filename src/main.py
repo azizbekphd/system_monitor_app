@@ -74,7 +74,7 @@ class SystemMonitorApp(QMainWindow):
 
         if self.recording:
             elapsed_time = time.time() - self.start_time
-            self.stop_button.setText(f'Stop Recording ({int(elapsed_time)} seconds)')
+            self.stop_button.setText(f'Stop Recording ({StringFormatter.format_time(int(elapsed_time))})')
             self.db_manager.insert_record(stats)
 
     def start_recording(self):

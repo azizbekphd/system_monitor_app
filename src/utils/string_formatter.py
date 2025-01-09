@@ -3,6 +3,10 @@ from core.system_stats import SystemStats
 
 class StringFormatter:
     @staticmethod
+    def format_int(value: int, digits: int = 2, leading: str = '0'):
+        return str(value).rjust(digits, leading)
+
+    @staticmethod
     def format_stats(stats: SystemStats):
         return {
             'cpu': f'{stats.cpu_percent}%',
@@ -28,3 +32,10 @@ class StringFormatter:
             return f'{bits / 1024 ** 3:.2f} GB'
         else:
             return f'{bits / 1024 ** 4:.2f} TB'
+
+    @staticmethod
+    def format_time(seconds: int):
+        return f'''{
+                StringFormatter.format_int(seconds // 3600)}:{
+                StringFormatter.format_int(seconds % 3600 // 60)}:{
+                StringFormatter.format_int(seconds % 60)}'''
