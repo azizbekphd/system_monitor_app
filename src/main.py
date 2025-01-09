@@ -24,7 +24,6 @@ class SystemMonitorApp(QMainWindow):
 
     def initUI(self):
         self.setWindowTitle('System Monitor')
-        self.setFixedSize(400, 200)
 
         # Widgets
         self.cpu_label = QLabel('CPU Usage:')
@@ -87,8 +86,8 @@ class SystemMonitorApp(QMainWindow):
     def stop_recording(self):
         self.recording = False
         self.start_time = None
-        self.start_button.setVisible(True)
         self.stop_button.setVisible(False)
+        self.start_button.setVisible(True)
         self.stop_button.setText('Stop Recording')
 
     def closeEvent(self, event):
